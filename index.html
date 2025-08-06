@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paul Horton</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --bg: #065145;
+      --fg: #8dec79;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg);
+      color: var(--fg);
+    }
+
+    .theme-bg {
+      background-color: var(--bg);
+    }
+
+    .theme-fg {
+      color: var(--fg);
+    }
+
+    .theme-box {
+      background-color: var(--fg);
+      color: var(--bg);
+    }
+
+    .theme-box-inverted {
+      background-color: var(--bg);
+      color: var(--fg);
+      border: 2px solid var(--fg);
+    }
+    
+    .borderless {
+      border: none;
+    }
+
+    .square {
+      aspect-ratio: 1 / 1;
+      width: 100%;
+    }
+
+    .pattern-dots {
+      width: 100%;
+      box-shadow: currentcolor 0px 0px 0px 1px inset;
+      background:
+        linear-gradient(45deg, currentcolor 1px, transparent 1px) 0% 0% / 10px 10px,
+        linear-gradient(-45deg, currentcolor 1px, transparent 1px);
+    }
+
+    .pattern-circles{
+      width: 100%; 
+      box-shadow: currentcolor 0px 0px 0px 1px inset; 
+      background: 
+        repeating-radial-gradient(circle at 100% center, currentcolor, currentcolor 1px, transparent 1px, transparent 2px);
+    }
+  </style>
+</head>
+<body class="theme-bg text-white p-4">
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-2 max-w-screen-lg mx-auto items-stretch">
+    <!-- Header Title (full width on mobile, 3/4 on desktop) -->
+    <div class="md:col-span-3 theme-box-inverted p-6 shadow flex flex-col justify-center text-center pattern-dots">
+      <h1 class="text-5xl font-bold">Paul Horton, Ph.D.</h1>
+      <p class="text-xl mt-2">Scientific Software Systems Engineer</p>
+    </div>
+
+    <!-- Icon Grid (full width on mobile, 1/4 on desktop, responsive 4x1 on mobile, 2x2 on desktop) -->
+    <div class="md:col-span-1 grid grid-cols-4 md:grid-cols-2 grid-rows-1 md:grid-rows-2 gap-2">
+      <a href="#" class="square theme-box flex items-center justify-center">
+        <i data-lucide="github" class="w-16 h-16"></i>
+      </a>
+      <a href="#" class="square theme-box flex items-center justify-center">
+        <i data-lucide="linkedin" class="w-16 h-16"></i>
+      </a>
+      <a href="#" class="square theme-box flex items-center justify-center">
+        <i data-lucide="mail" class="w-16 h-16"></i>
+      </a>
+      <a href="#" class="square theme-box flex items-center justify-center">
+        <i data-lucide="file-user" class="w-16 h-16"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- Dithered Photo and Bio Row -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-2 max-w-screen-lg mx-auto mt-2">
+    <div class="theme-box aspect-square overflow-hidden">
+      <canvas id="ditheredCanvas" class="w-full h-full"></canvas>
+    </div>
+    <div class="md:col-span-2 theme-box p-6 flex items-center">
+      <p class="text-lg leading-relaxed">
+        BIO: 
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      </p>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-2 max-w-screen-lg mx-auto mt-2">
+    <!-- EXPERIENCES -->
+    <div class="flex flex-col gap-2">
+      <div class="theme-box p-6">
+        <h2 class="text-2xl font-bold mb-4">Experience</h2>
+        <ul class="space-y-4">
+          <li>
+            <h3 class="text-lg font-semibold">NASA / ASTHROS</h3>
+            <p class="text-sm italic text-[var(--fg)]/80">Systems Engineer · 2023–Present</p>
+            <p>Led development of real-time onboard anomaly detection system for high-altitude observatory.</p>
+          </li>
+          <li>
+            <h3 class="text-lg font-semibold">Major League Hacking</h3>
+            <p class="text-sm italic text-[var(--fg)]/80">Hackathon Coach · 2022–2024</p>
+            <p>Mentored 50+ student hackathons across the US, helping teams build and launch projects rapidly.</p>
+          </li>
+          <li>
+            <h3 class="text-lg font-semibold">sunhacks</h3>
+            <p class="text-sm italic text-[var(--fg)]/80">Director of Technology · 2021–2024</p>
+            <p>Built registration, judging, and scheduling infrastructure for a 500+ person student-led hackathon.</p>
+          </li>
+          <li>
+            <h3 class="text-lg font-semibold">sunhacks</h3>
+            <p class="text-sm italic text-[var(--fg)]/80">Director of Technology · 2021–2024</p>
+            <p>Built registration, judging, and scheduling infrastructure for a 500+ person student-led hackathon.</p>
+          </li>
+          <li>
+            <h3 class="text-lg font-semibold">sunhacks</h3>
+            <p class="text-sm italic text-[var(--fg)]/80">Director of Technology · 2021–2024</p>
+            <p>Built registration, judging, and scheduling infrastructure for a 500+ person student-led hackathon.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- EDUCATION -->
+  <div class="flex flex-col gap-2 h-full">
+    <div class="theme-box p-6">
+      <h2 class="text-2xl font-bold mb-4">Education</h2>
+      <ul class="space-y-4">
+        <li>
+          <h3 class="text-lg font-semibold">Arizona State University</h3>
+          <p class="text-sm italic text-[var(--fg)]/80">B.S. Computer Systems Engineering · 2019–2023</p>
+          <p>Graduated with honors. Focused on embedded systems and spaceborne data pipelines.</p>
+        </li>
+      </ul>
+    </div>
+      <!-- SPACER box that fills remaining height -->
+      <div class="flex-grow theme-box-inverted pattern-dots">
+        <canvas id="boids" class="w-full h-full"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- Current positions -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+  <script type="module" src="random.js"></script>
+  <script src="dots.js"></script>
+</body>
+</html>
